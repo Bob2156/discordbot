@@ -23,6 +23,17 @@ async def on_ready():
 async def ping(ctx):
     await ctx.send("Pong!")
 
+@bot.event
+async def on_ready():
+    print(f"Bot is online as {bot.user}")
+    print("Guilds:", bot.guilds)
+
+@bot.command()
+async def ping(ctx):
+    print(f"Received !ping from {ctx.author}")
+    await ctx.send("Pong!")
+
+
 # Start Flask and bot together
 if __name__ == "__main__":
     token = os.getenv("BOT_TOKEN")
